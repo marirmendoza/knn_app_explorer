@@ -21,17 +21,16 @@ st.markdown("""
 st.title("🔍 Explorador Interativo do kNN — Intuição, Vizinhança e Escala")
 
 st.markdown("""
-O algoritmo **k-Nearest Neighbors (kNN)** assume que:
+O algoritmo **k-Nearest Neighbors (kNN)** assume que pontos semelhantes devem estar próximos no espaço.
 
-> **Pontos semelhantes tendem a estar próximos no espaço.**
+Este explorador permite visualizar de forma interativa:
 
-Este explorador mostra, de forma visual, o efeito:
-- do valor de **k**
-- da **escala dos atributos**
-- das diferentes **métricas de distância**
-- da **normalização**
-- e da **generalização com novos pontos de teste**
+- como o valor de **k** afeta a fronteira
+- o efeito dramático da **escala dos atributos**
+- o impacto da **normalização**
+- um teste simples de **generalização** com novos pontos desconhecidos
 """)
+
 
 # ============================================================
 # SIDEBAR – CONFIGURAÇÕES
@@ -44,16 +43,17 @@ metric = st.sidebar.selectbox("Métrica de Distância", ["euclidean", "manhattan
 st.sidebar.markdown("---")
 
 scenario = st.sidebar.radio("Cenário de Exploração:", [
-    "Fronteira Local (impacto do k)",
-    "Impacto da Escala"
+    "Fronteira Local (Impacto do k)",
+    "Impacto da Escala",
 ])
 
 dataset_type = st.sidebar.selectbox("Base de Dados", ["Moons", "Blobs"])
 
 normalize = st.sidebar.checkbox("Ativar Normalização", value=False)
 
+
 # ============================================================
-# GERAR TESTE QUANDO DATASET MUDA
+# GERAÇÃO DE PONTOS DE TESTE (INÍCIO OU MUDANÇA DE DATASET)
 # ============================================================
 
 def generate_test_points(dataset, seed):
@@ -67,11 +67,12 @@ def generate_test_points(dataset, seed):
             random_state=seed
         )
 
-# Inicializar session_state
 if "current_dataset" not in st.session_state:
     st.session_state.current_dataset = dataset_type
+
 if "test_seed" not in st.session_state:
     st.session_state.test_seed = 42
+
 if "test_points" not in st.session_state:
     st.session_state.test_points = generate_test_points(dataset_type, st.session_state.test_seed)
 
@@ -97,7 +98,7 @@ if st.sidebar.button("Gerar novos pontos"):
         st.session_state.test_points = generate_test_points(dataset_type, new_seed)
         st.sidebar.success(f"Novos pontos gerados com seed = {new_seed}")
     except:
-        st.sidebar.error("Seed inválida. Use um número inteiro.")
+        st.sidebar.error("Seed inválida. Digite um número inteiro.")
 
 
 # ============================================================
@@ -131,6 +132,7 @@ elif scenario == "Impacto da Escala":
         "O eixo Y foi multiplicado por 50 — sem normalização "
         "a distância vertical domina completamente."
     )
+
 
 # ============================================================
 # 3. NORMALIZAÇÃO
@@ -171,10 +173,6 @@ Z = clf.predict(np.c_[xx.ravel(), yy.ravel()]).reshape(xx.shape)
 # 6. VISUALIZAÇÃO PRINCIPAL
 # ============================================================
 
-st.markdown("---")
-st.subheader("🔍 Visualização da Fronteira de Decisão")
-
-
 fig, ax = plt.subplots(figsize=(10, 6))
 ax.contourf(xx, yy, Z, alpha=0.3, cmap='RdBu')
 ax.scatter(X_model[:, 0], X_model[:, 1], c=y, edgecolors='k', cmap='RdBu', alpha=0.8)
@@ -186,17 +184,20 @@ st.info(f"**Insight:** {info}")
 
 
 # ============================================================
-# 7. TESTANDO PONTOS DESCONHECIDOS
+# 7. TESTE COM PONTOS DESCONHECIDOS
 # ============================================================
 
 st.markdown("---")
 st.subheader("📊 Teste com Pontos Desconhecidos")
 
 X_test_raw, y_test = st.session_state.test_points
-# Normalização coerente
 X_test = scaler.transform(X_test_raw) if normalize else X_test_raw
 
-point_idx = st.selectbox("Selecione o ponto de teste:", range(10), format_func=lambda x: f"Ponto {x+1}")
+point_idx = st.selectbox(
+    "Selecione o ponto de teste:",
+    range(10),
+    format_func=lambda x: f"Ponto {x+1}"
+)
 
 test_point = X_test[point_idx].reshape(1, -1)
 pred = clf.predict(test_point)[0]
@@ -209,31 +210,36 @@ st.write(f"**Classe Real:** {real}")
 
 
 # ============================================================
-# VISUALIZAÇÃO INTERATIVA COM IDENTIFICAÇÃO DOS PONTOS
+# VISUALIZAÇÃO DOS PONTOS DE TESTE COM IDENTIFICAÇÃO 1–10
 # ============================================================
 
 fig_test, ax_test = plt.subplots(figsize=(8, 4))
 ax_test.contourf(xx, yy, Z, alpha=0.3, cmap='RdBu')
 ax_test.scatter(X_model[:, 0], X_model[:, 1], c=y, cmap='RdBu', alpha=0.3)
 
-# PLOTS COM NÚMEROS EXPLICATIVOS
 for i in range(10):
     px, py = X_test[i]
+
     if i == point_idx:
         ax_test.scatter(px, py, s=200, marker='X', c='yellow', edgecolors='black')
     else:
         ax_test.scatter(px, py, s=80, marker='o', c='black', edgecolors='white')
-    
-    # Adiciona número do ponto ao lado
-    ax_test.text(px + 0.05, py + 0.05, str(i+1), fontsize=10, color='yellow' if i==point_idx else 'white',
-                 bbox=dict(facecolor='black', alpha=0.4, edgecolor='none'))
 
-ax_test.set_title("Pontos de Teste (numeração visível)")
+    # Número corrigido: 1–10
+    ax_test.text(
+        px + 0.05, py + 0.05,
+        str(i + 1),
+        fontsize=10,
+        color='yellow' if i == point_idx else 'white',
+        bbox=dict(facecolor='black', alpha=0.4, edgecolor='none')
+    )
+
+ax_test.set_title("Pontos de Teste (identificação 1–10)")
 st.pyplot(fig_test)
 
 
 # ============================================================
-# ACURÁCIA DOS 10 PONTOS
+# ACURÁCIA NOS 10 PONTOS
 # ============================================================
 
 acc = np.mean(clf.predict(X_test) == y_test)

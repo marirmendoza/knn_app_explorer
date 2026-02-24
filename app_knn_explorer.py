@@ -177,6 +177,8 @@ fig, ax = plt.subplots(figsize=(10, 6))
 ax.contourf(xx, yy, Z, alpha=0.3, cmap='RdBu')
 ax.scatter(X_model[:, 0], X_model[:, 1], c=y, edgecolors='k', cmap='RdBu', alpha=0.8)
 
+ax.set_xlabel("Atributo 1")
+ax.set_ylabel("Atributo 2")
 ax.set_title(f"Fronteira de Decisão (k={k}, Métrica={metric})")
 st.pyplot(fig)
 
@@ -234,6 +236,8 @@ for i in range(10):
         bbox=dict(facecolor='black', alpha=0.4, edgecolor='none')
     )
 
+ax_test.set_xlabel("Atributo 1")
+ax_test.set_ylabel("Atributo 2")
 ax_test.set_title("Pontos de Teste (identificação 1–10)")
 st.pyplot(fig_test)
 

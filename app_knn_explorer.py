@@ -44,9 +44,8 @@ metric = st.sidebar.selectbox("Métrica de Distância", ["euclidean", "manhattan
 st.sidebar.markdown("---")
 
 scenario = st.sidebar.radio("Cenário de Exploração:", [
-    "Fronteira Local (k=1 vs k=25)",
-    "Impacto da Escala",
-    "Diferentes Métricas"
+    "Fronteira Local (impacto do k)",
+    "Impacto da Escala"
 ])
 
 dataset_type = st.sidebar.selectbox("Base de Dados", ["Moons", "Blobs"])
@@ -132,17 +131,6 @@ elif scenario == "Impacto da Escala":
         "O eixo Y foi multiplicado por 50 — sem normalização "
         "a distância vertical domina completamente."
     )
-
-elif scenario == "Diferentes Métricas":
-    if dataset_type == "Moons":
-        X[:, 0] *= 2
-        X[:, 1] *= 0.5
-    else:
-        X, y = make_blobs(n_samples=300, centers=2, cluster_std=2.0, random_state=10)
-    info = (
-        "Euclidiana gera fronteiras circulares; Manhattan gera regiões losangulares."
-    )
-
 
 # ============================================================
 # 3. NORMALIZAÇÃO

@@ -43,7 +43,7 @@ metric = st.sidebar.selectbox("Métrica de Distância", ["euclidean", "manhattan
 st.sidebar.markdown("---")
 
 scenario = st.sidebar.radio("Cenário de Exploração:", [
-    "Fronteira Local (Impacto do k)",
+    "Fronteira Local (k=1 vs k=25)",
     "Impacto da Escala",
 ])
 
@@ -243,4 +243,4 @@ st.pyplot(fig_test)
 # ============================================================
 
 acc = np.mean(clf.predict(X_test) == y_test)
-st.write(f"**Taxa de Acerto nos 10 Pontos de Teste:** `{acc:.0%}`")
+st.write(f"**Taxa de Acerto nos 10 Pontos:** `{acc:.0%}`")

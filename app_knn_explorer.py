@@ -237,7 +237,7 @@ for i in range(10):
         ax_test.scatter(px, py, s=80, marker='o', c='black', edgecolors='white')
     
     # Adiciona número do ponto ao lado
-    ax_test.text(px + 0.05, py + 0.05, str(i), fontsize=10, color='yellow' if i==point_idx else 'white',
+    ax_test.text(px + 0.05, py + 0.05, str(i+1), fontsize=10, color='yellow' if i==point_idx else 'white',
                  bbox=dict(facecolor='black', alpha=0.4, edgecolor='none'))
 
 ax_test.set_title("Pontos de Teste (numeração visível)")

@@ -89,7 +89,6 @@ You can:
 This makes it clearer how the model behaves when making predictions on new data.
 
 
-
 ---
 
 ## Credits

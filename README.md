@@ -2,7 +2,7 @@
 
 This interactive application, built with **Streamlit** and **Python**, allows you to explore the main concepts of the **k-Nearest Neighbors (kNN)** algorithm in a visual and intuitive way.
 
-kNN is one of the simplest Machine Learning methods, yet it can model non-linear decision boundaries (as you will see for yourself).
+kNN is one of the simplest Machine Learning methods, yet it can model non-linear decision boundaries.
 
 This example focuses on kNN applied to **classification tasks** and was developed by **Prof. Mariana Recamonde Mendoza** as supporting material for the **Machine Learning** course taught at the **Institute of Informatics — Federal University of Rio Grande do Sul (UFRGS)**.
 
@@ -14,7 +14,7 @@ This example focuses on kNN applied to **classification tasks** and was develope
 
 kNN has a very simple inductive bias:
 
-> **Points with similar attributes values tend to be close in the feature space.**
+> **Points with similar attribute values tend to be close in the feature space.**
 
 This explorer helps you visualize:
 
@@ -25,7 +25,7 @@ This explorer helps you visualize:
 - How the algorithm behaves with **new, unseen data points**  
 - The geometry of the data (**moons, blobs**), how it influences decisions, and how non-linear decision boundaries are formed  
 
-This tool is intended for to serve as a support for lectures, self-study, and live demonstrations.
+This tool is intended to serve as support for lectures, self-study, and live demonstrations.
 
 ---
 

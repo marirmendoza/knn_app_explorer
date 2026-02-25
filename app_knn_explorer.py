@@ -14,7 +14,7 @@ st.set_page_config(page_title="kNN Explorer", layout="wide")
 
 st.markdown("""
 <div style="background-color:#f0f2f6; padding:15px; border-radius:10px; border-left: 5px solid #004a99;">
-    <strong>Machine Learning – Prof. Mariana Recamonde Mendoza</strong><br>
+    <strong>Machine Learning – Profa. Mariana Recamonde Mendoza</strong><br>
     Institute of Informatics, Federal University of Rio Grande do Sul (UFRGS).<br>
     <em>Interactive material developed with the support of generative AI (ChatGPT + Gemini).</em>
 </div>

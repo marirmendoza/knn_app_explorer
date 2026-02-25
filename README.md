@@ -4,6 +4,9 @@ Este aplicativo interativo em ***Streamlit*** e ***Python***  permite explorar, 
 
 Este exemplo abrange uma aplicação do kNN em tarefas de classificação, e foi desenvolvido como material de apoio para a disciplina de **Aprendizado de Máquina**, da **Profa. Mariana Recamonde Mendoza**, no **Instituto de Informática — Universidade Federal do Rio Grande do Sul (UFRGS)**
 
+
+🔗 https://inf-knn-app-explorer.streamlit.app
+
 ---
 
 ## Objetivo do Aplicativo

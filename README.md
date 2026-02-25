@@ -94,8 +94,11 @@ This makes it clearer how the model behaves when making predictions on new data.
 
 ## Credits
 
-**Author:** Prof. Mariana Recamonde Mendoza  [Personal website](https://www.inf.ufrgs.br/~mrmendoza/)
-[Institute of Informatics](https://www.inf.ufrgs.br/site/) - Federal University of Rio Grande do Sul (UFRGS)
+**Author:** Profa. Mariana Recamonde Mendoza. 
+
+🔗 [Personal website.](https://www.inf.ufrgs.br/~mrmendoza/)
+
+📍 [Institute of Informatics](https://www.inf.ufrgs.br/site/) - Federal University of Rio Grande do Sul (UFRGS), Porto Alegre - RS, Brazil
 
 
 ---

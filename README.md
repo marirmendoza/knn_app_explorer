@@ -19,7 +19,7 @@ kNN has a very simple inductive bias:
 This explorer helps you visualize:
 
 - How the choice of **k** changes the decision boundary  
-- The effect of different **distance metrics** (for now, we are comparing Euclidian and Manhatan distances) 
+- The effect of different **distance metrics**
 - How **feature scaling** influences the results  
 - The importance of **feature normalization** for kNN
 - How the algorithm behaves with **new, unseen data points**  

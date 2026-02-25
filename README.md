@@ -1,96 +1,103 @@
-# 🔍 App kNN Explorer — Visualizando a Intuição do k-Nearest Neighbors
+# 🔍 kNN Explorer App — Visualizing the Intuition Behind k-Nearest Neighbors
 
-Este aplicativo interativo em ***Streamlit*** e ***Python***  permite explorar, de maneira visual e intuitiva, os principais conceitos do algoritmo **k-Nearest Neighbors (kNN)** — um dos métodos mais simples em Aprendizado de Máquina, e capaz de modelar fronteiras de decisão não-lineares. 
+This interactive application, built with **Streamlit** and **Python**, allows you to explore the main concepts of the **k-Nearest Neighbors (kNN)** algorithm in a visual and intuitive way.
 
-Este exemplo abrange uma aplicação do kNN em tarefas de classificação, e foi desenvolvido como material de apoio para a disciplina de **Aprendizado de Máquina**, da **Profa. Mariana Recamonde Mendoza**, no **Instituto de Informática — Universidade Federal do Rio Grande do Sul (UFRGS)**
+kNN is one of the simplest Machine Learning methods, yet it can model non-linear decision boundaries (as you will see for yourself).
 
+This example focuses on kNN applied to **classification tasks** and was developed by **Prof. Mariana Recamonde Mendoza** as supporting material for the **Machine Learning** course taught at the **Institute of Informatics — Federal University of Rio Grande do Sul (UFRGS)**.
 
-🔗 https://inf-knn-app-explorer.streamlit.app
-
----
-
-## Objetivo do Aplicativo
-
-O kNN possui um viés indutivo muito simples:
-
-> **Pontos com atributos semelhantes tendem a estar próximos no espaço.**
-
-Esse explorador permite visualizar:
-
-- Como a escolha de **k** altera a fronteira de decisão
-- O efeito de diferentes **métricas de distância**  
-- Como a diferença de **escala dos atributos** influencia o resultado  
-- A importância da **normalização**  de atributos
-- Como o algoritmo se comporta com **novos pontos nunca vistos**  
-- A geometria dos dados **(moons, blobs)**, sua influência na decisão, e a formação de fronteiras de decisão não-lineares
-
-É uma ferramenta ideal para aulas, estudos individuais e demonstrações ao vivo.
+🔗 [https://inf-knn-app-explorer.streamlit.app](https://inf-knn-explorer-app.streamlit.app)
 
 ---
 
-## Visão Geral do App
+## App Goal
 
-<img width="1124" height="710" alt="Captura de Tela 2026-02-24 às 19 39 52" src="https://github.com/user-attachments/assets/4cde5991-505d-497e-b3cf-db1d55cb51c9" />
+kNN has a very simple inductive bias:
 
+> **Points with similar attributes values tend to be close in the feature space.**
 
-O aplicativo possui três áreas principais:
+This explorer helps you visualize:
 
-1. **Configurações (barra lateral)**  
-2. **Visualização da fronteira de decisão**  
-3. **Teste com novos pontos (generalização)**  
+- How the choice of **k** changes the decision boundary  
+- The effect of different **distance metrics** (for now, we are comparing Euclidian and Manhatan distances) 
+- How **feature scaling** influences the results  
+- The importance of **feature normalization** for kNN
+- How the algorithm behaves with **new, unseen data points**  
+- The geometry of the data (**moons, blobs**), how it influences decisions, and how non-linear decision boundaries are formed  
 
----
-
-## Configurações do Modelo kNN
-
-Na barra lateral, você pode ajustar:
-
-- **k (número de vizinhos)**  
-- **Métrica de distância** (euclidiana ou manhattan)  
-- **Base de dados** (Moons ou Blobs)  
-- **Normalização** (Pelo método Min-Max)  
-- **Seed aleatória dos pontos de teste**  
-- **Gerar novos pontos de teste**
-
-Essas opções permitem construir experimentos para visualizar, imediatamente, o efeito das decisões de modelagem.
+This tool is intended for to serve as a support for lectures, self-study, and live demonstrations.
 
 ---
 
-## Cenários Exploratórios
+## App Overview
 
-O app possui dois cenários principais:
+The application has three main sections:
 
-### 1️⃣ **Fronteira Local**
-Permite observar:
-
-- Como k pequeno gera fronteiras irregulares (tendência a uma alta variância)  
-- Como k grande suaviza a fronteira (tendência a um alto viés)  
-
-### 2️⃣ **Impacto da Escala**
-Demonstra que:
-
-- Atributos com valores muito grandes dominam a distância  
-- Normalizar (por exemplo, usando Min-Max) é essencial em kNN  
-- Sem normalização, o eixo com maior amplitude “manda” na decisão  
+1. **Settings (sidebar)**  
+2. **Decision boundary visualization**  
+3. **Testing with new points (generalization)**  
 
 ---
 
-## Teste com Pontos Desconhecidos
+## kNN Model Settings
 
-O app gera automaticamente **10 novos pontos** (com sua própria seed).
+In the sidebar, you can adjust:
 
-Você pode:
+- **k (number of neighbors)**  
+- **Distance metric** (Euclidean or Manhattan)  
+- **Dataset** (Moons or Blobs)  
+- **Normalization** (Min-Max scaling)  
+- **Random seed for test points**  
+- **Generate new test points**
 
-- Selecionar um ponto (1 a 10)
-- Ver **classe verdadeira** × **classe predita**
-- Ver o ponto destacado no gráfico  
-- Ver todos os pontos numerados no plano  
-
-Isso torna mais claro como o modelo se comporta com novos dados.
+These options allow you to create small experiments and immediately observe the effect of modeling decisions.
 
 ---
 
-## Créditos
-**Autora:** Profa. Mariana Recamonde Mendoza, Instituto de Informática, Universidade Federal do Rio Grande do Sul (UFRGS)
+## Exploratory Scenarios
 
-Nota: O código foi desenvolvido com o apoio de Gemini e chatGPT.
+The app includes two main scenarios:
+
+### 1️⃣ Local Boundary
+
+This scenario allows you to observe:
+
+- How a small k produces irregular boundaries (tendency toward high variance)  
+- How a large k smooths the boundary (tendency toward high bias)  
+
+### 2️⃣ Impact of Scale
+
+This scenario demonstrates that:
+
+- Features with large values dominate the distance computation  
+- Normalizing features (for example, using Min-Max scaling) is essential in kNN  
+- Without normalization, the axis with the largest range “drives” the decision  
+
+---
+
+## Testing with Unseen Points
+
+The app automatically generates **10 new points** (using their own random seed), which simulate unseen, new data.
+
+You can:
+
+- Select a point (1 to 10)  
+- Compare the **true class** and the **predicted class** for this point
+- See the selected point highlighted in the plot  
+- View all numbered points in the feature space  
+
+This makes it clearer how the model behaves when making predictions on new data.
+
+
+
+---
+
+## Credits
+
+**Author:** Prof. Mariana Recamonde Mendoza  [Personal website](https://www.inf.ufrgs.br/~mrmendoza/)
+[Institute of Informatics](https://www.inf.ufrgs.br/site/) - Federal University of Rio Grande do Sul (UFRGS)
+
+
+---
+## Notes
+*The code was developed with the support of Generative AI (Gemini 3.1 and ChatGPT 5.2).*

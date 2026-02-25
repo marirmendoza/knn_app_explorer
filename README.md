@@ -1,12 +1,12 @@
 # 🔍 App kNN Explorer — Visualizando a Intuição do k-Nearest Neighbors
 
-Este aplicativo interativo em **Streamlit** permite explorar, de maneira visual e intuitiva, os principais conceitos do algoritmo **k-Nearest Neighbors (kNN)** — um dos métodos mais simples em Aprendizado de Máquina, e capaz de modelar fronteiras de decisão não-lineares. 
+Este aplicativo interativo em ***Streamlit*** e ***Python***  permite explorar, de maneira visual e intuitiva, os principais conceitos do algoritmo **k-Nearest Neighbors (kNN)** — um dos métodos mais simples em Aprendizado de Máquina, e capaz de modelar fronteiras de decisão não-lineares. 
 
 Este exemplo abrange uma aplicação do kNN em tarefas de classificação, e foi desenvolvido como material de apoio para a disciplina de **Aprendizado de Máquina**, da **Profa. Mariana Recamonde Mendoza**, no **Instituto de Informática — Universidade Federal do Rio Grande do Sul (UFRGS)**
 
 ---
 
-## 🧠 Objetivo do Aplicativo
+## Objetivo do Aplicativo
 
 O kNN possui um viés indutivo muito simples:
 
@@ -25,7 +25,7 @@ Esse explorador permite visualizar:
 
 ---
 
-## 🖼️ Visão Geral do App
+## Visão Geral do App
 
 <img width="1124" height="710" alt="Captura de Tela 2026-02-24 às 19 39 52" src="https://github.com/user-attachments/assets/4cde5991-505d-497e-b3cf-db1d55cb51c9" />
 
@@ -38,22 +38,22 @@ O aplicativo possui três áreas principais:
 
 ---
 
-## 🎚️ Configurações do Modelo kNN
+## Configurações do Modelo kNN
 
 Na barra lateral, você pode ajustar:
 
-- 🔢 **k (número de vizinhos)**  
-- 📏 **Métrica de distância** (euclidiana ou manhattan)  
-- 📊 **Base de dados** (Moons ou Blobs)  
-- 🎛️ **Normalização** (Pelo método Min-Max)  
-- 🧪 **Seed aleatória dos pontos de teste**  
-- 🔄 **Gerar novos pontos de teste**
+- **k (número de vizinhos)**  
+- **Métrica de distância** (euclidiana ou manhattan)  
+- **Base de dados** (Moons ou Blobs)  
+- **Normalização** (Pelo método Min-Max)  
+- **Seed aleatória dos pontos de teste**  
+- **Gerar novos pontos de teste**
 
 Essas opções permitem construir experimentos para visualizar, imediatamente, o efeito das decisões de modelagem.
 
 ---
 
-## 🧩 Cenários Exploratórios
+## Cenários Exploratórios
 
 O app possui dois cenários principais:
 
@@ -67,12 +67,12 @@ Permite observar:
 Demonstra que:
 
 - Atributos com valores muito grandes dominam a distância  
-- Normalizar (Min-Max) é essencial em kNN  
+- Normalizar (por exemplo, usando Min-Max) é essencial em kNN  
 - Sem normalização, o eixo com maior amplitude “manda” na decisão  
 
 ---
 
-## 🧪 Teste com Pontos Desconhecidos
+## Teste com Pontos Desconhecidos
 
 O app gera automaticamente **10 novos pontos** (com sua própria seed).
 
@@ -87,7 +87,7 @@ Isso torna mais claro como o modelo se comporta com novos dados.
 
 ---
 
-## 🧠 Créditos
+## Créditos
 **Autora:** Profa. Mariana Recamonde Mendoza, Instituto de Informática, Universidade Federal do Rio Grande do Sul (UFRGS)
 
 Nota: O código foi desenvolvido com o apoio de Gemini e chatGPT.

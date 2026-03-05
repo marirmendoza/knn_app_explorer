@@ -39,13 +39,13 @@ This explorer allows you to interactively visualize:
 # ============================================================
 
 st.sidebar.header("🛠️ kNN Settings")
-k = st.sidebar.slider("Value of k (Neighbors)", 1, 31, 3, step=2)
+k = st.sidebar.slider("Value of k (Neighbors)", 1, 101, 3, step=2)
 metric = st.sidebar.selectbox("Distance Metric", ["euclidean", "manhattan"])
 
 st.sidebar.markdown("---")
 
 scenario = st.sidebar.radio("Exploration Scenario:", [
-    "Local Boundary (k=1 vs k=25)",
+    "Local Boundary (Impact of k)",
     "Impact of Scale",
 ])
 
@@ -122,10 +122,10 @@ y = y_base.copy()
 # 2. APPLY SCENARIO
 # ============================================================
 
-if scenario == "Local Boundary (k=1 vs k=25)":
+if scenario == "Local Boundary (k=1 vs k=31)":
     info = (
         "With k=1, small 'islands' appear — local overfitting. "
-        "With k=25, the boundary becomes much smoother."
+        "With k=31 (larger values), the boundary becomes much smoother."
     )
 
 elif scenario == "Impact of Scale":
